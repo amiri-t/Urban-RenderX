@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Banner from "../components/Banner";
 import SecondSection from "../components/SecondSection";
 import RenderingTypes from "../components/RenderingTypes";
+import OurProcess from "../components/OurProcess";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner />
       <SecondSection />
       <RenderingTypes />
+      <OurProcess />
     </Container>
   );
 };

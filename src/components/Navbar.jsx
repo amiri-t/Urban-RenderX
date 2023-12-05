@@ -81,6 +81,9 @@ const Navbar = () => {
 };
 const Container = styled.div`
   backdrop-filter: blur(7px);
+  background-color: #0000001c;
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import Banner from "../components/Banner";
+import SecondSection from "../components/SecondSection";
 
 const Home = () => {
   return (
     <Container>
       <Banner />
+      <SecondSection />
     </Container>
   );
 };

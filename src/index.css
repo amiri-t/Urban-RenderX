@@ -9,8 +9,14 @@
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: var(--primaryBgColor);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+.link-styles {
+  text-decoration: none;
+  color: white;
 }
 
 code {
@@ -18,8 +24,8 @@ code {
     monospace;
 }
 :root {
-  --primaryBgColor: #1a1a1a;
+  --primaryBgColor: #070707;
   --secondaryBgColor: gray;
-  --primaryColor: white;
-  --secondaryColor: rgb(182, 182, 182);
+  --fontPrimaryColor: white;
+  --fontSecondaryColor: #b6b6b6;
 }

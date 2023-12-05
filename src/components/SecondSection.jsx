@@ -30,7 +30,7 @@ const Container = styled.div`
     font-family: "Titillium Web";
     font-size: 5.8em;
     line-height: 1.1em;
-    font-weight: 400;
+    font-weight: 300;
   }
   p {
     color: var(--fontSecondaryColor);

@@ -5,6 +5,7 @@ import SecondSection from "../components/SecondSection";
 import RenderingTypes from "../components/RenderingTypes";
 import OurProcess from "../components/OurProcess";
 import PortfolioComp from "../components/PortfolioComp";
+import FAQ from "../components/FAQ";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <RenderingTypes />
       <OurProcess />
       <PortfolioComp />
+      <FAQ />
     </Container>
   );
 };

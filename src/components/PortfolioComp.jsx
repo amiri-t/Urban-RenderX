@@ -1,20 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import portPic1 from "../assets/portPic1.webp";
 import portPic2 from "../assets/portPic2.webp";
 import portPic3 from "../assets/portPic3.jpg";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const PortfolioComp = () => {
   const [bgDecs, setBgDesc] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    }
+    // eslint-disable-next-line
+  }, [isInView]);
   return (
     <Container>
       <h1 className="title">OUR PORTFOLIO</h1>
       <div className="items">
-        <div
+        <motion.div
           className="item"
           onMouseOver={() => setBgDesc(1)}
           onMouseLeave={() => setBgDesc(0)}
+          ref={ref}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 0.3 }}
+          initial="hidden"
+          animate={animation}
         >
           <img
             className={bgDecs === 1 ? "img dark" : "img"}
@@ -29,11 +49,18 @@ const PortfolioComp = () => {
           ) : (
             ""
           )}
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className="item"
           onMouseOver={() => setBgDesc(2)}
           onMouseLeave={() => setBgDesc(0)}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 0.7 }}
+          initial="hidden"
+          animate={animation}
         >
           <img
             className={bgDecs === 2 ? "img dark" : "img"}
@@ -48,11 +75,18 @@ const PortfolioComp = () => {
           ) : (
             ""
           )}
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className="item"
           onMouseOver={() => setBgDesc(3)}
           onMouseLeave={() => setBgDesc(0)}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 1 }}
+          initial="hidden"
+          animate={animation}
         >
           <img
             className={bgDecs === 3 ? "img dark" : "img"}
@@ -67,7 +101,7 @@ const PortfolioComp = () => {
           ) : (
             ""
           )}
-        </div>
+        </motion.div>
       </div>
       <button>DISCOVER ALL</button>
     </Container>

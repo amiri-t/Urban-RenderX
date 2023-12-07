@@ -1,15 +1,46 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import bannerBg from "../assets/bannerBg.jpg";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const Banner = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    }
+    // eslint-disable-next-line
+  }, [isInView]);
   return (
     <Container>
       <img src={bannerBg} alt="" />
-      <h1>
+      <motion.h1
+        ref={ref}
+        variants={{
+          hidden: { opacity: 0, y: 100 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        transition={{ duration: 0.3 }}
+        initial="hidden"
+        animate={animation}
+      >
         The Art <br /> of Placement
-      </h1>
-      <p>Designing dreams, rendering reality.</p>
+      </motion.h1>
+      <motion.p
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ delay: 0.7 }}
+        initial="hidden"
+        animate={animation}
+      >
+        Designing dreams, rendering reality.
+      </motion.p>
     </Container>
   );
 };
@@ -44,8 +75,13 @@ const Container = styled.div`
     }
   }
   @media (max-width: 490px) {
+    height: 60vh;
+    img {
+      height: 60vh;
+    }
     h1 {
       font-size: 3em;
+      margin-top: 2.2em;
     }
   }
 `;

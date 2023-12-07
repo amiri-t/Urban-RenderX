@@ -1,12 +1,34 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const OurProcess = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    }
+    // eslint-disable-next-line
+  }, [isInView]);
   return (
     <Container>
       <h1 className="title">OUR PROCESS</h1>
       <div className="items">
-        <div className="item">
+        <motion.div
+          className="item"
+          ref={ref}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 0.3 }}
+          initial="hidden"
+          animate={animation}
+        >
           <h2>Consultation and Requirement Gathering</h2>
           <p>
             Understand the client's vision, preferences, and requirements.
@@ -14,8 +36,17 @@ const OurProcess = () => {
             dimensions, layout, desired style, color schemes, and any specific
             features or elements.
           </p>
-        </div>
-        <div className="item">
+        </motion.div>
+        <motion.div
+          className="item"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 0.6 }}
+          initial="hidden"
+          animate={animation}
+        >
           <h2>Conceptualization and Planning</h2>
           <p>
             Develop a preliminary design concept based on the gathered
@@ -23,8 +54,17 @@ const OurProcess = () => {
             illustrate the proposed design. Collaborate with the client to
             refine and finalize the design direction.
           </p>
-        </div>
-        <div className="item">
+        </motion.div>
+        <motion.div
+          className="item"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 0.9 }}
+          initial="hidden"
+          animate={animation}
+        >
           <h2>Modeling and Rendering</h2>
           <p>
             Utilize specialized software to create detailed 3D models of the
@@ -33,8 +73,17 @@ const OurProcess = () => {
             the virtual environment that will be rendered into the final visual
             representation.
           </p>
-        </div>
-        <div className="item">
+        </motion.div>
+        <motion.div
+          className="item"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 1.2 }}
+          initial="hidden"
+          animate={animation}
+        >
           <h2>Rendering and Visualization</h2>
           <p>
             Apply lighting, materials, and textures to the 3D model to create
@@ -42,8 +91,17 @@ const OurProcess = () => {
             different angles and perspectives to achieve high-quality images or
             videos that accurately depict the design.
           </p>
-        </div>
-        <div className="item">
+        </motion.div>
+        <motion.div
+          className="item"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1 },
+          }}
+          transition={{ delay: 1.5 }}
+          initial="hidden"
+          animate={animation}
+        >
           <h2>Review and Revision</h2>
           <p>
             Present the rendered visuals to the client for feedback and review.
@@ -51,7 +109,7 @@ const OurProcess = () => {
             aligns with the client's expectations. Iterate on the rendering as
             needed until the client is satisfied with the final result.
           </p>
-        </div>
+        </motion.div>
       </div>
     </Container>
   );

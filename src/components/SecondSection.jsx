@@ -1,15 +1,45 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import bgImg from "../assets/bgImg2.png";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 const SecondSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      animation.start("visible");
+    }
+    // eslint-disable-next-line
+  }, [isInView]);
   return (
     <Container>
       <img src={bgImg} alt="" />
-      <h1>
+      <motion.h1
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        initial="hidden"
+        animate={animation}
+      >
         Where Modern <br /> Meets Cozy <br /> Spaces!
-      </h1>
-      <p>and where life meets impeccable design.</p>
+      </motion.h1>
+      <motion.p
+        ref={ref}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1 },
+        }}
+        transition={{ delay: 0.7 }}
+        initial="hidden"
+        animate={animation}
+      >
+        and where life meets impeccable design.
+      </motion.p>
     </Container>
   );
 };
@@ -48,6 +78,7 @@ const Container = styled.div`
     }
   }
   @media (max-width: 480px) {
+    padding: 3em 7% 12em 7%;
     h1 {
       font-size: 3.4em;
     }

@@ -76,6 +76,7 @@ const Container = styled.div`
       }
       p {
         color: var(--fontSecondaryColor);
+        text-align: center;
       }
     }
   }

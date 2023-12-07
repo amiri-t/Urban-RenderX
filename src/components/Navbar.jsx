@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { motion, useAnimation, useInView } from "framer-motion";
 import logo from "../assets/urxLogonbg.png";
 
 const Navbar = () => {
@@ -11,9 +10,6 @@ const Navbar = () => {
   const [activeTab, setActiveTab] = useState("home");
   const location = useLocation();
   const pathname = location.pathname;
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const animation1 = useAnimation();
 
   useEffect(() => {
     if (pathname === "/") {
@@ -30,12 +26,6 @@ const Navbar = () => {
       setActiveTab("get-a-proposal");
     }
   }, [pathname]);
-  useEffect(() => {
-    if (isInView) {
-      animation1.start("visible");
-    }
-    // eslint-disable-next-line
-  }, [isInView]);
   return (
     <Container>
       <Link to={"/"} className="link-styles">
@@ -94,7 +84,7 @@ const Container = styled.div`
   transition: 0.2s;
   box-sizing: border-box;
   .logo {
-    height: 80px;
+    height: 50px;
     margin-top: 7px;
   }
   .nav-menu {

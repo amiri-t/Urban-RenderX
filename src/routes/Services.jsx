@@ -63,7 +63,6 @@ const Services = () => {
           className="service"
           onMouseOver={() => setBgDesc(2)}
           onMouseLeave={() => setBgDesc(0)}
-          ref={ref}
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1 },
@@ -89,7 +88,6 @@ const Services = () => {
           className="service"
           onMouseOver={() => setBgDesc(3)}
           onMouseLeave={() => setBgDesc(0)}
-          ref={ref}
           variants={{
             hidden: { opacity: 0 },
             visible: { opacity: 1 },
@@ -115,12 +113,11 @@ const Services = () => {
           className="service"
           onMouseOver={() => setBgDesc(4)}
           onMouseLeave={() => setBgDesc(0)}
-          ref={ref}
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1.4 },
+            visible: { opacity: 1 },
           }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.4 }}
           initial="hidden"
           animate={animation}
         >
@@ -141,12 +138,11 @@ const Services = () => {
           className="service"
           onMouseOver={() => setBgDesc(5)}
           onMouseLeave={() => setBgDesc(0)}
-          ref={ref}
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1.8 },
+            visible: { opacity: 1 },
           }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 1.8 }}
           initial="hidden"
           animate={animation}
         >

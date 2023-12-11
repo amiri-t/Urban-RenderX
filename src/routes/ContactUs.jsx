@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { GiPencilRuler } from "react-icons/gi";
 import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs

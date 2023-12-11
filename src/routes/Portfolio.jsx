@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import bannerImg from "../assets/portfolioBannerImg.jpg";
 
 const Portfolio = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container>
       <div className="banner">
@@ -110,7 +113,10 @@ const Portfolio = () => {
 const Container = styled.div`
   overflow-x: hidden;
   .banner {
-    height: 90vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     img {
       width: 100%;
       height: 90vh;
@@ -120,13 +126,13 @@ const Container = styled.div`
       z-index: -1;
     }
     h1 {
-      padding: 7% 0 0 7%;
+      margin: 0 8%;
       font-size: 8vw;
       line-height: 1.1em;
       font-weight: 400;
     }
     p {
-      padding-left: 7%;
+      padding: 0 8%;
       margin-top: 1em;
     }
   }
@@ -163,7 +169,7 @@ const Container = styled.div`
       .renderType {
         .pics {
           img {
-            width: 90%;
+            width: 100%;
             height: 40vh;
             :nth-child(2) {
               margin-top: 0em;
@@ -173,6 +179,13 @@ const Container = styled.div`
             }
           }
         }
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    .banner {
+      h1 {
+        font-size: 13vw;
       }
     }
   }

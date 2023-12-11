@@ -23,6 +23,9 @@ const Services = () => {
     }
     // eslint-disable-next-line
   }, [isInView]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container>
       <div className="banner">
@@ -160,7 +163,7 @@ const Services = () => {
           )}
         </motion.div>
       </div>
-      <Link to={"/contact-us"}>
+      <Link to={"/contact-us"} className="link-styles">
         <button>TALK TO US</button>
       </Link>
     </Container>

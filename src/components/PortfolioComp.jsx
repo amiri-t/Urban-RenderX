@@ -5,6 +5,7 @@ import portPic2 from "../assets/portPic2.webp";
 import portPic3 from "../assets/portPic3.jpg";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const PortfolioComp = () => {
   const [bgDecs, setBgDesc] = useState(0);
@@ -42,10 +43,12 @@ const PortfolioComp = () => {
             alt=""
           />
           {bgDecs === 1 ? (
-            <span>
-              <h2>DISCOVER MORE INTERIOR RENDERINGS</h2>
-              <FaExternalLinkAlt />
-            </span>
+            <Link to={"/portfolio"} className="link-styles">
+              <span>
+                <h2>DISCOVER MORE INTERIOR RENDERINGS</h2>
+                <FaExternalLinkAlt />
+              </span>
+            </Link>
           ) : (
             ""
           )}
@@ -68,10 +71,12 @@ const PortfolioComp = () => {
             alt=""
           />
           {bgDecs === 2 ? (
-            <span>
-              <h2>DISCOVER MORE EXTERIOR RENDERINGS</h2>
-              <FaExternalLinkAlt />
-            </span>
+            <Link to={"/portfolio"} className="link-styles">
+              <span>
+                <h2>DISCOVER MORE EXTERIOR RENDERINGS</h2>
+                <FaExternalLinkAlt />
+              </span>
+            </Link>
           ) : (
             ""
           )}
@@ -94,16 +99,20 @@ const PortfolioComp = () => {
             alt=""
           />
           {bgDecs === 3 ? (
-            <span>
-              <h2>DISCOVER MORE COMMERCIAL RENDERINGS</h2>
-              <FaExternalLinkAlt />
-            </span>
+            <Link to={"/portfolio"} className="link-styles">
+              <span>
+                <h2>DISCOVER MORE COMMERCIAL RENDERINGS</h2>
+                <FaExternalLinkAlt />
+              </span>
+            </Link>
           ) : (
             ""
           )}
         </motion.div>
       </div>
-      <button>DISCOVER ALL</button>
+      <Link to={"/portfolio"} className="link-styles">
+        <button>DISCOVER ALL</button>
+      </Link>
     </Container>
   );
 };
